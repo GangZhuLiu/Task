@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.rog//DTD mapper 3.0//EN"  "http://mybati.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.PersonMapper">
+    <insert id ="addPerson" parameterType = "model.Person" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into person1 (name,age,QQ) values (#{name},#{age},#{QQ})
+    </insert>
+    <select id = "selectPerson" parameterType = "int" resultType = "model.Person">
+        select * from person1 where id = #{id}
+    </select>
+    <delete id = "deletePerson" parameterType = "int" >
+        delete from person1 where id = #{id}
+    </delete>
+    <update id = "updatePerson" parameterType = "model.Person" >
+        update person1 set name = #{name},age = #{age},QQ = #{QQ} where id = #{id}
+    </update>
+    <select id="ListAll" resultType="model.Person">
+        select * from Person1
+    </select>
+</mapper>
